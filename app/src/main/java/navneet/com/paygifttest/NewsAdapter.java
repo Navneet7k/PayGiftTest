@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.zip.Inflater;
@@ -35,6 +36,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull NewsAdapter.ViewHolder viewHolder, int i) {
 
+        final Article article=articles.get(i);
+
+        viewHolder.title.setText(article.getTitle());
+        viewHolder.description.setText(article.getTitle());
+        viewHolder.date_time.setText(article.getTitle());
     }
 
     @Override
@@ -43,8 +49,12 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
+        private TextView title,description,date_time;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            title=(TextView)itemView.findViewById(R.id.title);
+            description=(TextView)itemView.findViewById(R.id.desc);
+            date_time=(TextView)itemView.findViewById(R.id.date_time);
         }
     }
 }
