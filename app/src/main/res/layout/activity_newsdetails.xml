@@ -2,21 +2,41 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/tool_bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NewsDetailsActivity">
 
     <ImageView
+        android:scaleType="centerCrop"
         android:id="@+id/news_image"
         android:layout_width="match_parent"
         android:layout_height="300dp" />
     <LinearLayout
+        android:orientation="vertical"
         android:padding="10dp"
         android:layout_below="@+id/news_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+            android:id="@+id/news_title"
+            android:textColor="@color/dark_grey"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:padding="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:padding="5dp"
+            android:id="@+id/news_date"
+            android:textColor="@color/dark_grey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:padding="5dp"
+            android:textSize="16sp"
             android:id="@+id/news_desc"
+            android:textColor="@color/white_colour"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>

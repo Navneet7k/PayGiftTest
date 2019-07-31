@@ -6,10 +6,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 import navneet.com.paygifttest.model.Article;
 import navneet.com.paygifttest.model.NewsResponse;
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -34,9 +37,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getNewsFeed() {
-
         Retrofit retrofit=new Retrofit.Builder()
-                .baseUrl("https://newsapi.org/")
+                .baseUrl("http://newsapi.org/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();  //creating a retrofit object and loading it with gson converter factory for json to pojo conversions easy
 

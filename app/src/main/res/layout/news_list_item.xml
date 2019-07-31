@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="wrap_content">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/tool_bg"
+    android:layout_margin="3dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <LinearLayout
         android:id="@+id/news_details"
         android:padding="5dp"
@@ -9,23 +13,26 @@
         android:layout_height="wrap_content">
         <TextView
             android:id="@+id/title"
-            android:textColor="#A9A9A9"
-            android:textSize="16sp"
+            android:textColor="@color/dark_grey"
+            android:textSize="24sp"
             android:textStyle="bold"
             android:padding="2dp"
-            android:text="IHG Eliminating Miniature Bath Amenities Globally - One Mile at a Time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
+            android:visibility="gone"
             android:id="@+id/desc"
             android:padding="2dp"
-            android:text="IHG is eliminating bathroom miniatures in favor of bulk-size amenities at all of their 5,600+ hotels globally. They're the first major hotel group to do so."
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
     <TextView
+        android:drawableLeft="@drawable/cal"
+        android:drawablePadding="7dp"
+        android:gravity="center"
+        android:textColor="@color/green"
         android:id="@+id/date_time"
-        android:padding="5dp"
+        android:padding="7dp"
         android:layout_below="@+id/news_details"
         android:text="2019-07-30T11:49:57Z"
         android:layout_width="wrap_content"

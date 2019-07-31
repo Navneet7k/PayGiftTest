@@ -9,8 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.zip.Inflater;
+import java.util.Date;
 
 import navneet.com.paygifttest.model.Article;
 
@@ -39,9 +41,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
         final Article article=articles.get(i);
 
+        final String date=splitDate(article.getPublishedAt());
+
         viewHolder.title.setText(article.getTitle());
         viewHolder.description.setText(article.getTitle());
-        viewHolder.date_time.setText(article.getPublishedAt());
+        viewHolder.date_time.setText(date);
+
+
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,10 +55,16 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
                 Intent intent=new Intent(mContext,NewsDetailsActivity.class);
                 intent.putExtra("title",article.getTitle());
                 intent.putExtra("desc",article.getDescription());
-                intent.putExtra("date",article.getPublishedAt());
+                intent.putExtra("date",date);
+                intent.putExtra("image",article.getUrlToImage());
                 mContext.startActivity(intent);
             }
         });
+    }
+
+    private String splitDate(String date) {
+        String dateSplit[]=date.split("T");
+        return dateSplit[0];
     }
 
     @Override
