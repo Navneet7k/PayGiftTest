@@ -1,6 +1,7 @@
 package navneet.com.paygifttest;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -40,7 +41,18 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
         viewHolder.title.setText(article.getTitle());
         viewHolder.description.setText(article.getTitle());
-        viewHolder.date_time.setText(article.getTitle());
+        viewHolder.date_time.setText(article.getPublishedAt());
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(mContext,NewsDetailsActivity.class);
+                intent.putExtra("title",article.getTitle());
+                intent.putExtra("desc",article.getDescription());
+                intent.putExtra("date",article.getPublishedAt());
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -2,6 +2,7 @@ package navneet.com.paygifttest;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
@@ -26,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        newsRecyclerView=(RecyclerView)findViewById(R.id.news_list);
+        newsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
         getNewsFeed(); //fetches the json response from newsapi.org using retrofit
     }
 
@@ -42,7 +46,11 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<NewsResponse>() {
             @Override
             public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {
-                Toast.makeText(MainActivity.this,"Success!",Toast.LENGTH_SHORT).show();
+                if (response.isSuccessful()) {
+                    articles = new ArrayList<Article>(response.body().getArticles());
+                    newsAdapter=new NewsAdapter(MainActivity.this,articles);
+                    newsRecyclerView.setAdapter(newsAdapter);
+                }
             }
 
             @Override

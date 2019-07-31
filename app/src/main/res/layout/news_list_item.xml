@@ -18,7 +18,6 @@
             android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/desc"
-            android:fontFamily="monospace"
             android:padding="2dp"
             android:text="IHG is eliminating bathroom miniatures in favor of bulk-size amenities at all of their 5,600+ hotels globally. They're the first major hotel group to do so."
             android:layout_width="match_parent"
