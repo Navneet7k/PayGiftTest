@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PayGiftTest</string>
+    <string name="error_text">Oops! Something went wrong !</string>
+    <string name="read_more_txt">read more..</string>
 </resources>

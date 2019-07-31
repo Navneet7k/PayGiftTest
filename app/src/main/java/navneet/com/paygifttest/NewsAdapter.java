@@ -13,6 +13,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import navneet.com.paygifttest.model.Article;
 
@@ -57,6 +58,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
                 intent.putExtra("desc",article.getDescription());
                 intent.putExtra("date",date);
                 intent.putExtra("image",article.getUrlToImage());
+                intent.putExtra("more_url",article.getUrl());
                 mContext.startActivity(intent);
             }
         });
@@ -80,5 +82,12 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
             description=(TextView)itemView.findViewById(R.id.desc);
             date_time=(TextView)itemView.findViewById(R.id.date_time);
         }
+    }
+
+    public void addImages(List<Article> articles_list) {
+        for (Article article:articles_list) {
+            articles.add(article);
+        }
+        notifyDataSetChanged();
     }
 }
