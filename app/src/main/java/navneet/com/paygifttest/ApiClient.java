@@ -8,8 +8,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class ApiClient {
     //use of this pattern helps us to maintain only a single instance of retrofit
-    public static final String base_url="http://newsapi.org/";
-    public static Retrofit retrofit=null;
+    private static final String base_url="http://newsapi.org/";
+    private static Retrofit retrofit=null;
 
     public static Retrofit getApiClient() {
         if (retrofit==null) {
